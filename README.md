@@ -12,3 +12,6 @@ The test is implemented with [Webdriver.io][wdio] without Windows-compatible scr
 
 ## Running
 
+Use the provided [`run.sh`][runsh] script.
+
+[runsh]: ./run.sh

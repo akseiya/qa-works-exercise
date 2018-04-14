@@ -5,6 +5,7 @@
 The test is implemented with [Webdriver.io][wdio] without portability handling,
 which means following prerequisites:
 - Linux host machine with Curl and Java JDK 1.8
+- Node.js 6.11.2
 - working Internet connection
 
 [wdio]: http://webdriver.io

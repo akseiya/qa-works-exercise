@@ -60,7 +60,9 @@ before <nobr>a `Then`</nobr>). I took the liberty to split them while investigat
 an obscure error message from WDIO miscommunicating with Cucumber.
 
 Data table does not follow usual Gherkin conventions*, although it can be used and
-its format does make sense for a single example with multiple inputs.
+its format does make sense for a single example with multiple inputs. It can, however,
+be not portable to other platform (i.e. I don't think Ruby's original Cuke would
+accept it).
 
 *) I actually did enounter advice to use something like below instead, even for
    a single input set:

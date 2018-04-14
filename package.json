@@ -1,0 +1,24 @@
+{
+  "name": "qa-works-exercise",
+  "version": "1.0.0",
+  "description": "Acceptance test automation for QA Works",
+  "main": "-",
+  "scripts": {
+    "test": "wdio wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akseiya/qa-works-exercise.git"
+  },
+  "keywords": [
+    "testing",
+    "acceptance",
+    "bdd"
+  ],
+  "author": "Michał Lech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akseiya/qa-works-exercise/issues"
+  },
+  "homepage": "https://github.com/akseiya/qa-works-exercise#readme"
+}

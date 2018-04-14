@@ -2,9 +2,8 @@
 
 ## Pre-requisites
 
-The test is implemented with [Webdriver.io][wdio] without Windows-compatible scripts, which means following prerequisites:
-- POSIX host machine with a Bourne Shell descendant
-- [Node.js][getnode]
+The test is implemented with [Webdriver.io][wdio] without portability handling, which means following prerequisites:
+- Linux host machine with Curl and Java JDK 1.8
 - working Internet connection
 
 [wdio]: http://webdriver.io

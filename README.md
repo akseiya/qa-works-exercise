@@ -122,7 +122,7 @@ such disappointment.
 While in initial stages of solving the challenge I followed the WDIO docs,
 I discovered at some point that getting a shell and X Server in Windows 10
 is not as trivial as to just do it while downloading Ubuntu image for VirtualBox
-is not exactly an option on a mobile connection. This, while I left their
+is not exactly an option on a mobile connection. Thus, while I left their
 installation scripts in the directory, they are not currently used, just PhantomJS
 which gets set up by `npm i` for its WDIO adapter.
 

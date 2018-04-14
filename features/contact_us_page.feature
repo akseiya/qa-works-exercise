@@ -5,8 +5,9 @@ Feature: Contact Us Page
 
   Scenario: Valid Submission
     Given that I am on the QAWorks Site
-     Then I should be able to contact QAWorks with the following information
+     When I fill the contact form with the following information:
         | name    | j.Bloggs                                  |
         | subject | test automation                           |
         | email   | j.Bloggs@qaworks.com                      |
         | message | please contact me I want to find out more |
+     Then I should be able to contact QAWorks

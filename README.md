@@ -29,16 +29,53 @@ the test to be implemented lacks them.
   belong in visual tests with, say, Applitools - not in functional features
   with a webdriver.
 
+Scenario provided mixes an action with its expected results (`When` before
+<nobr>a `Then`</nobr>). I took the liberty to split them while investigating
+an obscure error message from WDIO miscommunicating with Cucumber.
+
+Data table does not follow usual Gherkin conventions*, although it can be used and
+its format does make sense for a single example with multiple inputs.
+
+*) I actually did enounter advice to use something like below instead, even for
+   a single input set:
+   ```
+   | name     | subject         | email                | message                                   |
+   | j.Bloggs | test automation | j.Bloggs@qaworks.com | please contact me I want to find out more |
+   ```
+
+Email address used as input is within `qaworks.com` domain. I assume that, when
+used for an initial contact form, any email from within `qaworks.com` is
+considered a test account and does not skew traffic stats.
+
 ## Highlights
 
 ### Why WDIO?
 
 Because I have only _reviewed_ test suites in WDIO so far. My impression was that
 of little flexibility* and but <nobr>a few</nobr> particularly impressive
-advantages over pure Selenium.
+advantages over pure Selenium. I did not, however, properly explore WDIO's
+capabilities for cross-browser testing with equal(?) treatment of desktop and
+mobile platforms.
 
 *) e.g. when it comes to situations requiring extra parallelism which means
 customer commands to start Cucumber.js
+
+#### _I have made a huge mistake_
+
+Currently WDIO doesn't seem exactly on top of changes in Cucumber.js:
+- Cucumber.js installed by WDIO deprecates `defineSupportCode` and prescribes
+  importing Gherkin verbs directly; however, attempting
+  ```js
+  const { Given, When, Then } = require('cucumber');
+  ```
+  has resulted, for me, with
+  ```
+  ERROR: Cannot read property 'split' of undefined
+  phantomjs
+  ```
+  which I have, after some investigation, tracked to `{ Given, When, Then}`
+  being an empty object after the import. Restoring the old fashion of
+  importing Cucumber interface restored WDIO's ability to run tests.
 
 ### Why all the shellscripts, do you have too much time?
 

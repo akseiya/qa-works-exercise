@@ -124,6 +124,14 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
     reporters: ['junit','allure'],
+    reporterOptions: {
+        junit:  {outputDir: './reports/junit-results/'},
+        allure: {
+          outputDir:   './reports/allure-results/',
+          disableWebdriverStepsReporting: false,
+          useCucumberStepReporter: false,
+        },
+    },
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {

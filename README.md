@@ -34,9 +34,11 @@ the test to be implemented lacks them.
 ### Why WDIO?
 
 Because I have only _reviewed_ test suites in WDIO so far. My impression was that
-of little flexibility and but a few particularly impressive advantages over pure
-Selenium, particularly when it comes to situations requiring extra parallelism
-or any other customisation in e.g. how Cucumber is run.
+of little flexibility* and but <nobr>a few</nobr> particularly impressive
+advantages over pure Selenium.
+
+*) e.g. when it comes to situations requiring extra parallelism which means
+customer commands to start Cucumber.js
 
 ### Why all the shellscripts, do you have too much time?
 

@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/akseiya/qa-works-exercise/issues"
   },
-  "homepage": "https://github.com/akseiya/qa-works-exercise#readme"
+  "homepage": "https://github.com/akseiya/qa-works-exercise#readme",
+  "dependencies": {
+    "webdriverio": "^4.12.0"
+  },
+  "devDependencies": {
+    "wdio-allure-reporter": "^0.6.0",
+    "wdio-cucumber-framework": "^2.0.1",
+    "wdio-junit-reporter": "^0.4.2"
+  }
 }

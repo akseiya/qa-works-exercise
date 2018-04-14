@@ -1,5 +1,5 @@
 exports.config = {
-    
+
     //
     // ==================
     // Specify Test Files
@@ -152,7 +152,7 @@ exports.config = {
         timeout: 20000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
-    
+
     //
     // =====
     // Hooks
@@ -195,7 +195,7 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-    
+
     /**
      * Runs before a Cucumber feature
      * @param {Object} feature feature details
@@ -218,8 +218,12 @@ exports.config = {
      * Runs after a Cucumber step
      * @param {Object} stepResult step result
      */
-    // afterStep: function (stepResult) {
-    // },
+    afterStep: function (stepResult) {
+        if (stepResult.isFailed()) {
+            console.log('Trying to take screenshot');
+            browser.saveScreenshot('./errorShots/lastFail.png');
+        }
+    },
     /**
      * Runs after a Cucumber scenario
      * @param {Object} scenario scenario details
@@ -232,7 +236,7 @@ exports.config = {
      */
     // afterFeature: function (feature) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

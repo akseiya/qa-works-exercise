@@ -17,20 +17,41 @@ Use the provided [`run.sh`][runsh] script.
 
 [runsh]: ./run.sh
 
+## The surprise
+
+As of 2018-04-14 18:21 the submission form was not working, giving the error
+message
+<center>
+⚠ THERE WAS AN ERROR TRYING TO SEND YOUR MESSAGE.<br/>
+PLEASE TRY AGAIN LATER.
+</center>
+
+I confirmed that it's not a deliberate testing fuction reacting to enquiries
+from within `qaworks.com`.
+
+Since there was no acceptance criteria for being able to contact QA Works,
+I had no known way of asserting that the test step has passed.
+For the time being, I made it so that I expect a submission result box
+to appear, but with a role different from `alert`.
+
+This also means that, as of Saturday evening, the test is failing on
+an actual issue with the webpage.
+
 ## Nitpicking
 
 While the technical challenge includes acceptance criteria for itself,
 the test to be implemented lacks them.
 
-- When can we say that the user has, indeed, succeeded in contacting QA Works?
-- When viewing the main page on a desktop device with HD screen, I can see
-  that nice big _NEED SOME QA ADVICE?_ straight away; in Chrome's mobile mode
-  it needs some scrolling to show up - I did however assume that these checks
-  belong in visual tests with, say, Applitools - not in functional features
-  with a webdriver.
+Either the spec is outdated, or the page is in error, since there is no
+`subject` field, while there is a 'Company' field. Since QA Works provides
+services to companies, it is technically sensible that 'Company' field be
+compulsory. For this exercise, I'm dropping 'subject' and adding 'company'.
+The field does not have `aria-required` flag _as implemented_, so if I had chosen
+pure Selenium as platform, I might have burnt a bit of time to make the scenario an
+outline where a Valid Submission does or does not include company/project name.
 
-Scenario provided mixes an action with its expected results (`When` before
-<nobr>a `Then`</nobr>). I took the liberty to split them while investigating
+Scenario provided mixes an action with its expected results (it has no `When`
+before <nobr>a `Then`</nobr>). I took the liberty to split them while investigating
 an obscure error message from WDIO miscommunicating with Cucumber.
 
 Data table does not follow usual Gherkin conventions*, although it can be used and
@@ -76,6 +97,9 @@ Currently WDIO doesn't seem exactly on top of changes in Cucumber.js:
   which I have, after some investigation, tracked to `{ Given, When, Then}`
   being an empty object after the import. Restoring the old fashion of
   importing Cucumber interface restored WDIO's ability to run tests.
+
+Due to excessive time consumed by WDIO hiccups, I have only implemented the
+basic prescribed test with no real improvements or extensions.
 
 ### Why all the shellscripts, do you have too much time?
 

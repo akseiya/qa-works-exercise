@@ -12,11 +12,12 @@ defineSupportCode(({Given,When,Then}) => {
         dataTable.rawTable.forEach((item) => {
             const [input, content] = item;
             HomePage.contactFormInput(input).setValue(content);
-        })
+        });
+        HomePage.sendEnquiry();
     });
 
     Then(/I should be able to contact QAWorks/, () => {
-        console.log('I am the serpent king. I can do anything.');
+        expect(HomePage.submissionResult().success).to.be.true;
     });
 });
 

@@ -187,6 +187,7 @@ exports.config = {
     // },
     before: (capabilities, spec) => {
       global.expect = require('chai').expect;
+      global.LongLoadWaitTime = 10000;
     },
     /**
      * Runs before a WebdriverIO command gets executed.
@@ -220,7 +221,7 @@ exports.config = {
      */
     afterStep: function (stepResult) {
         if (stepResult.isFailed()) {
-            console.log('Trying to take screenshot');
+            require('fs').unlink('./errorShots/lastFail.png');
             browser.saveScreenshot('./errorShots/lastFail.png');
         }
     },

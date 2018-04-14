@@ -4,8 +4,7 @@
 
 The test is implemented with [Webdriver.io][wdio] without portability handling,
 which means following prerequisites:
-- Linux host machine with Curl and Java JDK 1.8
-- Node.js 6.11.2
+- Linux host machine with Node.js 6.11.2
 - working Internet connection
 
 [wdio]: http://webdriver.io
@@ -16,6 +15,12 @@ which means following prerequisites:
 Use the provided [`run.sh`][runsh] script.
 
 [runsh]: ./run.sh
+
+The test is run in PhantomJS and produces results in [Allure][] and JUnit formats,
+both of which can be consumed by Jenkins. JUnit is accepted by majority if not
+all broadly used CD/CI tools.
+
+[Allure]: http://webdriver.io/guide/reporters/allure.html
 
 ## The surprise
 
@@ -96,7 +101,8 @@ Currently WDIO doesn't seem exactly on top of changes in Cucumber.js:
   ```
   which I have, after some investigation, tracked to `{ Given, When, Then}`
   being an empty object after the import. Restoring the old fashion of
-  importing Cucumber interface restored WDIO's ability to run tests.
+  importing Cucumber interface and downgrading adapter version to 1 restored
+  WDIO's ability to run tests.
 
 Due to excessive time consumed by WDIO hiccups, I have only implemented the
 basic prescribed test with no real improvements or extensions.
@@ -108,3 +114,14 @@ exercise reviews. I noticed that most of my colleagues were considerably
 unhappy when the test suite didn't run out of the box. While I didn't want to
 shoulder the cost of dockerisation right now, I also didn't want to cause
 such disappointment.
+
+## Final notes
+
+While in initial stages of solving the challenge I followed the WDIO docs,
+I discovered at some point that getting a shell and X Server in Windows 10
+is not as trivial as to just do it while downloading Ubuntu image for VirtualBox
+is not exactly an option on a mobile connection. This, while I left their
+installation scripts in the directory, they are not currently used, just PhantomJS
+which gets set up by `npm i` for its WDIO adapter.
+
+I hope that the enquiry submission issue gets fixed quickly!

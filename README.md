@@ -64,7 +64,7 @@ its format does make sense for a single example with multiple inputs. It can, ho
 be not portable to other platform (i.e. I don't think Ruby's original Cuke would
 accept it).
 
-*) I actually did enounter advice to use something like below instead, even for
+*) Normally I'd expect something like below instead, even for
    a single input set:
    ```
    | name     | subject         | email                | message                                   |
